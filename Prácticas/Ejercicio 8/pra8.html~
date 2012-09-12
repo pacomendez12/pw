@@ -20,7 +20,7 @@
 
 
 		<video controls="controls">
-			<source src="http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_stereo.ogg" type="video/ogg" />
+			<source src="http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_stereo.ogg" type="video/oggs" />
 			Este archivo no es soportado
         </video>
     </body>

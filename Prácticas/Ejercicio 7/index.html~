@@ -29,6 +29,12 @@
         </nav>
 
 
+		
+		 <h2>Página principal</h2>
+         <h4>Página principal donde se encuentra el contenido central</h4>
+
+        <br/>
+
 		<aside>
 			<p>Aquí esta un aside</p>
 		</aside>
