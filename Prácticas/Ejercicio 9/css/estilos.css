@@ -1,0 +1,41 @@
+*{margin:auto;}
+
+body{background-image:url(../img/f.png);
+	background-repeat:repeat-x;
+	background-attachment:fixed;
+	margin:0px;
+	width:90%;
+	position:absolute;
+	left:50%;
+	margin-left:-45%;
+}
+
+p{margin:15px 0px 15px 0px;}
+
+nav{background-image:url(../img/madera1.jpg);}
+
+nav a{margin:0px 35px;}
+
+article{background-color:#FFF;}
+
+footer,nav,h1{text-align:center;}
+
+#encabezado{text-align:center; background-image:url(../img/fondo.png); margin-bottom:5px;width:100%}
+
+#titulo{position:relative;
+	left:18em;
+	bottom:2em;
+	width:40em;
+	}
+#logo{position:relative;
+	right:12em;
+	top:1.2em;}
+	
+article{width:70%;}
+
+aside{position:absolute;
+	border:solid;
+	right:0em;}
+
+footer{margin:3em 0px;
+}
