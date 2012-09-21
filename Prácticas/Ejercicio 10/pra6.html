@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Ejercicio 6 de programacion Web</title>
+        <style type="text/css">
+        </style>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="shortcut icon" type="image/png" href="favicon.png" />
+        <meta name="description" content="Free Web tutorials" />
+        <meta name="keywords" content="HTML,CSS,XML,JavaScript" />
+        <meta name="author" content="Francisco Mendez" />
+        <meta charset="UTF-8" />
+        
+        
+                
+        <script type="text/javascript">
+			function validaFormulario(){
+				var valRet;
+				var regEx = /[\d]{10}/;
+				var regExTel = /(30|31|([12][0-9])|(0[1-9]))\-(11|12|10|(0[1-9]))\-([0-9]{4})/;
+				var regExIma = /(.bmp$)|(.jpg$)|(.BMP$)|(.JPG$)|(.jpeg$)|(.JPEG$)|(.gif$)|(.GIF$)|(.png$)|(.PNG$)/;
+
+	        	if(!document.getElementById('cb1').checked &&
+	        		!document.getElementById('cb2').checked &&
+	        		!document.getElementById('cb3').checked &&
+	        		!document.getElementById('cb4').checked &&
+	        		!document.getElementById('cb5').checked &&
+	        		!document.getElementById('cb6').checked){
+	        		document.getElementById('error').style.marginTop = '175px';
+	        		document.getElementById('error').style.display='block';
+	        		document.getElementById('error').innerHTML = "Debe seleccionar al menos una opción";
+	        		//registro.nick.focus();
+	        		setTimeout("document.getElementById('error').style.display='none';",4000);
+	        		valRet = false;
+	        	}
+	        	else
+	        	if(registro.nombre.value.length==0){
+	        		document.getElementById('error').style.marginTop = '349px';
+		    		document.getElementById('error').style.display='block';
+		    		document.getElementById('error').innerHTML = "Escribe tu nombre completo";
+		    		registro.nombre.focus();
+		    		setTimeout("document.getElementById('error').style.display='none';",4000);
+		    		valRet = false;
+	       		}
+	       		
+	        	else
+	        	if(registro.direccion.value.length==0){
+	        		document.getElementById('error').style.marginTop = '380px';
+		    		document.getElementById('error').style.display='block';
+		    		document.getElementById('error').innerHTML = "Escribe tu dirección";
+		    		registro.direccion.focus();
+		    		setTimeout("document.getElementById('error').style.display='none';",4000);
+		    		valRet = false;
+	       		}
+	        	
+	        	else
+	        	if(registro.telefono.value.length!=10 || !registro.telefono.value.match(regEx)){
+	        		document.getElementById('error').style.marginTop = '410px';
+		    		document.getElementById('error').style.display='block';
+		    		document.getElementById('error').innerHTML = "Teléfono consta de 10 dígitos";
+		    		registro.telefono.focus();
+		    		setTimeout("document.getElementById('error').style.display='none';",4000);
+		    		valRet = false;
+	       		}
+	       		
+	       		else
+	       		if(registro.nac.value.length!=10 || !registro.nac.value.match(regExTel)){
+	        		document.getElementById('error').style.marginTop = '440px';
+		    		document.getElementById('error').style.display='block';
+		    		document.getElementById('error').innerHTML = "La fecha lleva el formato: DD-MM-AAAA";
+		    		registro.nac.focus();
+		    		setTimeout("document.getElementById('error').style.display='none';",4000);
+		    		
+		    		valRet = false;
+	       		}
+	       		
+	       		else
+	       		if(!document.getElementById("sexo1").checked && !document.getElementById("sexo2").checked){
+	        		document.getElementById('error').style.marginTop = '480px';
+		    		document.getElementById('error').style.display='block';
+		    		document.getElementById('error').innerHTML = "Elija el sexo";
+		    		registro.nac.focus();
+		    		setTimeout("document.getElementById('error').style.display='none';",4000);
+		    		
+		    		valRet = false;
+	       		}
+	       		else
+	       		if(registro.imagen.value.length==0){
+	        		document.getElementById('error').style.marginTop = '560px';
+		    		document.getElementById('error').style.display='block';
+		    		document.getElementById('error').innerHTML = "Elija un archivo válido de imágen";
+		    		registro.nac.focus();
+		    		setTimeout("document.getElementById('error').style.display='none';",4000);
+		    		
+		    		valRet = false;
+	       		}
+	       		
+	       		else
+	       		if(!registro.imagen.value.match(regExIma)){
+	        		document.getElementById('error').style.marginTop = '560px';
+		    		document.getElementById('error').style.display='block';
+		    		document.getElementById('error').innerHTML = "La extensión del archivo no es válida";
+		    		registro.nac.focus();
+		    		setTimeout("document.getElementById('error').style.display='none';",4000);
+		    		
+		    		valRet = false;
+	       		}
+	       		else
+	       		if(registro.pass.value.length==0){
+	       			document.getElementById('error').style.left = '550px';
+	        		document.getElementById('error').style.marginTop = '622px';
+		    		document.getElementById('error').style.display='block';
+		    		document.getElementById('error').innerHTML = "Reingrese su contraseña";
+		    		registro.nac.focus();
+		    		setTimeout("document.getElementById('error').style.display='none';",4000);
+		    		
+		    		valRet = false;
+	       		}
+	        	
+	        	return valRet;
+			}
+			
+        </script>
+        
+        <style type="text/css">
+        	#error{
+        		z-index:100;
+     			display:none;
+      			background-color:#ED2B2B;
+      			width:300px;
+      			height:20px;
+      			position:absolute;
+      			left:350px;
+      			margin-top:20px;
+      			text-align:center;
+      			vertical-align:middle;
+        	}
+        </style>
+        
+        
+    </head>
+    <body>
+        <h1>Antes de finalizar el registro</h1>
+            <form name="registro" method="post" action="l.html" onSubmit="return validaFormulario();">
+            <div id="error">
+		    		hola
+    			</div>
+            <fieldset>
+                <fieldset>
+                <table>
+
+                    <tr>
+                        <td>
+                            <label for="correo">
+                                Correo
+                            </label>
+                        </td>
+                        <td>
+                            <input type="email" id="correo" name="correo" disabled="disabled" value="alguncorreo@algo.com" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="usuario">
+                                Usuario
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="usuario" name="usuario" disabled="disabled" value="algunNombre" />
+                        </td>
+                    </tr>
+                    </table>
+                    </fieldset>
+                    <fieldset>
+                    <table>
+                    <tr> <td> <p>¿Porque se ha registrado?</p> </td></tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="intereses" id="cb1" value="Autos" />Invitación 
+                            <br/>
+                            <input type="checkbox" name="intereses" id="cb2" value="Tecnología" />Curiosidad
+                            <br/>
+                            <input type="checkbox" name="intereses" id="cb3" value="Programación" />Temas de interés
+                            <br/>
+                            <input type="checkbox" name="intereses" id="cb4" value="Viajes" />Descargar contenido
+                            <br/>
+                            <input type="checkbox" name="intereses" id="cb5" value="Noticias" />Conocer gente
+                            <br/>
+                            <input type="checkbox" name="intereses" id="cb6" value="Ciencia" />Ayudar en foros
+                            <br/>
+                        </td>
+                    </tr>
+                    </table>
+                    </fieldset>
+					<fieldset>
+                    <table>
+                    <tr><td>Datos personales<p></p></td></tr>
+                    <tr>
+                        <td>
+                            <label for="nombre">
+                                Nombre Completo
+                            </label>
+                        </td>
+                        <td>
+                           <input type="text" id="nombre" name="nombre" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="direccion">
+                                Dirección
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="direccion" name="direccion" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="telefono">
+                                Teléfono
+                            </label>
+                        </td>
+                        <td>
+                            <input type="tel" id="telefono" name="telefono" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="nac">
+                                Fecha de nacimiento
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="nac" name="nac" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="sexo1">
+                                Sexo
+                            </label>
+                        </td>
+                        <td>
+							<input type="radio" name="sexo" id="sexo1" value="hombre" />Hombre <br/>
+							<input type="radio" name="sexo" id="sexo2" value="mujer" />Mujer <br/>
+                        </td>
+                    </tr>
+                </table>
+                </fieldset>
+                <fieldset>
+                	<table>
+                		<tr>
+                			<td><p>Seleccione una imágen y reingrese su contraseña</p></td>
+                		</tr>
+                		<tr>
+                			<td>
+		                        <label for="imagen">
+		                            Imágen
+		                        </label>
+                			</td>
+                			<td>
+								<input type="file" accept="image/*" name="imagen" id="imagen" />
+                			</td>
+                		</tr>
+                		<tr>
+                        <td>
+                            <label for="pass">
+                                Contraseña
+                            </label>
+                        </td>
+                        <td>
+                            <input type="password" id="pass" name="pass" />
+                        </td>
+                    </tr>
+                	</table>
+                </fieldset>
+                <button type="submit">Terminar registro</button>
+                <button type="reset">Limpiar</button>
+                </fieldset>
+            </form>
+    </body>
+</html>

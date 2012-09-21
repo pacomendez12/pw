@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Ejercicio 5 de programacion Web</title>
+        <style type="text/css">
+        </style>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="shortcut icon" type="image/png" href="favicon.png" />
+        <meta name="description" content="Free Web tutorials" />
+        <meta name="keywords" content="HTML,CSS,XML,JavaScript" />
+        <meta name="author" content="Francisco Mendez" />
+        <meta charset="UTF-8" />
+        
+        
+        <script type="text/javascript">
+			function validaFormulario(){
+				clearTimeout();
+				var valRet;
+				var regEx = /[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
+
+	        	if(registro.nick.value.length==0){
+	        		document.getElementById('error').style.display='block';
+	        		document.getElementById('error').innerHTML = "El campo Nick debe tener un valor";
+	        		registro.nick.focus();
+	        		setTimeout("document.getElementById('error').style.display='none';",4000);
+	        		valRet = false;
+	        	}
+	        	else
+	        		if(registro.nick.value.length<6 || registro.nick.value.length > 15){
+			    		document.getElementById('error').style.display='block';
+			    		document.getElementById('error').innerHTML = "Nick debe tener entre 6 y 15 caracteres";
+			    		registro.nick.focus();
+			    		setTimeout("document.getElementById('error').style.display='none';",4000);
+			    		valRet = false;
+	        		}
+	        	
+	        	
+	        	else
+	        	if(!registro.correo.value.match(regEx)){
+	        		document.getElementById('error').style.marginTop = '35px';
+	        		document.getElementById('error').style.display='block';
+	        		document.getElementById('error').innerHTML = "Estructura de E-mail inválida";
+	        		registro.correo.focus();
+	        		setTimeout("document.getElementById('error').style.display='none';",4000);
+
+	        		valRet = false;
+	        	}
+	        	
+	        	else
+	        	if(registro.pass.value.length < 6 || registro.pass.value.length > 15){
+	        		document.getElementById('error').style.marginTop = '65px';
+	        		document.getElementById('error').style.display='block';
+	        		document.getElementById('error').innerHTML = "Contraseña obligatoria entre 6 y 15 caracteres";
+	        		registro.pass.focus();
+	        		setTimeout("document.getElementById('error').style.display='none';",4000);
+
+	        		valRet = false;
+	        	}
+	        	
+	        	else
+	        	if(registro.pass.value != registro.pass2.value){
+	        		document.getElementById('error').style.marginTop = '120px';
+	        		document.getElementById('error').style.display='block';
+	        		document.getElementById('error').innerHTML = "Las contraseñas no coinciden";
+	        		registro.pass2.focus();
+	        		setTimeout("document.getElementById('error').style.display='none';",4000);
+
+	        		valRet = false;
+	        	}
+	        	
+	        	return valRet;
+			}
+			
+        </script>
+        
+        <style type="text/css">
+        	#error{
+        		z-index:100;
+      			display:none;
+      			background-color:#ED2B2B;
+      			width:300px;
+      			height:20px;
+      			position:absolute;
+      			left:350px;
+      			margin-top:4px;
+      			text-align:center;
+      			vertical-align:middle;
+        	}
+        </style>
+        
+        
+    </head>
+    <body onLoad="registro.nick.focus()">
+
+        <h1>Creación de nuevo usuario</h1>
+        <fieldset>
+            <form name="registro" method="post" action="limpio.html" onSubmit="return validaFormulario();">
+                <div id="error">
+		    		hola
+    			</div>
+            
+                <table>
+                    <tr>
+                        <td>
+                            <label for="nick">
+                                Nick
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="nick" name="nick" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="correo">
+                                E-mail
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="correo" name="correo" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="pass">
+                                Contraseña
+                            </label>
+                        </td>
+                        <td>
+                            <input type="password" id="pass" name="pass" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Repita su contraseña
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="pass2">
+                                Contraseña
+                            </label>
+                        </td>
+                        <td>
+                            <input type="password" id="pass2" name="pass2" />
+                        </td>
+                    </tr>
+                </table>
+                <button type="submit">
+                    Registrar usuario
+                </button>
+            </form>
+        </fieldset>
+    </body>
+</html>
