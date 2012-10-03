@@ -103,12 +103,13 @@
                             <input type="text" id="direccion" name="direccion" />
 							 <br />
                             <label for="telefono">
-                                Teléfono
+                                Teléfono(s)
                             </label>
 
                             <input type="tel" id="telefono" name="telefono" class="telefonoClase" />
 							<input type="button" id="add" name="add" value="Agregar" onClick="agregaTel()" />
                             
+                            <br id="naci" />
                             <br />
 
                             <label for="nac">
@@ -151,23 +152,55 @@
 
 
 		<script type="text/javascript">
+			var telefonos = 1;
+		
+			function eliminaTel(idBtn,idTel,idNl){
+				var eleBtn = document.getElementById(idBtn);
+				var eleTel = document.getElementById(idTel);
+				var eleNl = document.getElementById(idNl);
+				var fs = document.getElementById('fsDatos');
+				
+				fs.removeChild(eleBtn);
+				fs.removeChild(eleTel);
+				fs.removeChild(eleNl);
+				
+			}
+		
 			function agregaTel(){
 				var tel = document.createElement('input');
+				var nl = document.createElement('br');
 				var tels = document.getElementsByTagName('input');
-
+				var btn = document.createElement('input');
+				
+				nl.id = "nl"+telefonos;
+				
 				tel.type = 'tel';
 				tel.name = 'telefono'+telefonos;
 				tel.id = 'telefono'+telefonos;
-				tel.class= 'telefonoClase';
-				var nacimiento = document.getElementById('add');
+				tel.class= 'telefonoClase';				
+				
+				btn.setAttribute('type','button');
+				btn.id = 'btnTel'+telefonos;
+				btn.name = 'btnTel'+telefonos;
+				btn.setAttribute('value','Eliminar');
+				btn.onclick = function(){
+					eliminaTel(btn.id,tel.id,nl.id);
+				}
+
+
+				
+				var nacimiento = document.getElementById('naci');
+				
 				var fs = document.getElementById('fsDatos');
+				fs.insertBefore(nl,nacimiento);
 				fs.insertBefore(tel,nacimiento);
+				fs.insertBefore(btn,nacimiento);
 				telefonos++;
 
 			}
 		</script>
 		        <script type="text/javascript">
-        	var telefonos = 1;
+
         	
         	function verificaTelefonos(){
         		console.log("llegue aqui");
