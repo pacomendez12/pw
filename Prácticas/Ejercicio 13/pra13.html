@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Ejercicio 13 de programacion Web</title>
+        <link rel="shortcut icon" type="image/png" href="favicon.png" />
+        <meta name="description" content="Free Web tutorials" />
+        <meta name="keywords" content="HTML,CSS,XML,JavaScript" />
+        <meta name="author" content="Francisco Mendez" />
+        <meta charset="UTF-8" />
+        
+        
+
+        
+        
+        
+    </head>
+    <body>
+            <script type="text/javascript">
+        	//crear elemento
+			var titulo = document.createElement('h1');
+
+			//crear texto
+			var texto = document.createTextNode('Primer Título');
+
+			//agregar el texto al titulo
+			titulo.appendChild(texto);
+
+			//agregar el elemento al body
+			document.body.appendChild(titulo);
+
+
+			var titulo2 = document.createElement('h1');
+
+			var texto2 = document.createTextNode('Otro título');
+
+			titulo2.appendChild(texto2);
+
+			var titulos = document.getElementsByTagName('h1');
+
+			document.body.insertBefore(titulo2,titulos[0]);
+
+        </script>
+        
+    </body>
+</html>

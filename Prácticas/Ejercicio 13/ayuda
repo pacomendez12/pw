@@ -1,0 +1,3 @@
+pass_MD5 = md5(document.registro.pass.value);
+
+libreria: phpjs.org
